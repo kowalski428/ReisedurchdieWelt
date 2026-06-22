@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Magdas Reise durch die Welt</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --papier: #FBF8F1;
+    --papier-rand: #EDE6D6;
+    --tinte: #2B2823;
+    --tinte-hell: #5C574A;
+    --rot: #C0392B;
+    --gruen: #4F8A5B;
+    --magenta: #B23A7A;
+    --gold: #B8954A;
+    --linie: #D8CFB8;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--papier-rand);
+    color: var(--tinte);
+  }
+
+  .schreibschrift { font-family: 'Caveat', cursive; }
+
+  /* ---------- Kopfbereich: wie die Titelseite des PDFs ---------- */
+  header {
+    background: var(--papier);
+    padding: 22px 36px 18px;
+    position: relative;
+    border-bottom: 1px solid var(--linie);
+  }
+
+  header::before, header::after {
+    content: "";
+    position: absolute;
+    width: 26px; height: 26px;
+    border-color: var(--tinte-hell);
+    opacity: 0.55;
+  }
+  header::before { top: 8px; left: 8px; border-top: 1px solid; border-left: 1px solid; }
+  header::after { top: 8px; right: 8px; border-top: 1px solid; border-right: 1px solid; }
+
+  .titel-zeile{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-left: 22px;
+  }
+
+  header h1 {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 2.4rem;
+    margin: 0;
+    color: var(--tinte);
+  }
+
+  header .herz { color: var(--rot); font-size: 1.1rem; margin-right: 6px; }
+
+  header p.untertitel {
+    margin: 2px 0 0 22px;
+    font-family: 'Caveat', cursive;
+    font-size: 1.15rem;
+    color: var(--tinte-hell);
+  }
+
+  .fortschritt-leiste-wrap{
+    margin-top: 14px;
+    padding-left: 22px;
+    max-width: 420px;
+  }
+  .fortschritt-text{
+    display:flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--tinte-hell);
+    margin-bottom: 5px;
+  }
+  .fortschritt-leiste{
+    height: 6px;
+    background: var(--linie);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .fortschritt-fuellung{
+    height: 100%;
+    background: var(--magenta);
+    border-radius: 4px;
+    transition: width 0.4s ease;
+  }
+
+  .hinweis-zeile{
+    padding-left: 22px;
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--tinte-hell);
+    font-style: italic;
+  }
+
+  /* ---------- Jahreszeiten-Filter ---------- */
+  :root{
+    --fruehling: #7CA45C;
+    --sommer: #D9A23B;
+    --herbst: #C2622D;
+    --winter: #5B85AA;
+  }
+
+  .filter-leiste{
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding-left: 22px;
+    margin-top: 14px;
+  }
+
+  .filter-knopf{
+    border: 1px solid var(--linie);
+    background: #fff;
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 0.8rem;
+    font-family: 'Source Sans 3', sans-serif;
+    cursor: pointer;
+    color: var(--tinte-hell);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s ease;
+  }
+  .filter-knopf .punkt{
+    width: 8px; height: 8px; border-radius: 50%;
+    display: inline-block;
+  }
+  .filter-knopf[data-saison="Frühling"] .punkt{ background: var(--fruehling); }
+  .filter-knopf[data-saison="Sommer"] .punkt{ background: var(--sommer); }
+  .filter-knopf[data-saison="Herbst"] .punkt{ background: var(--herbst); }
+  .filter-knopf[data-saison="Winter"] .punkt{ background: var(--winter); }
+
+  .filter-knopf.aktiv{
+    background: var(--tinte);
+    color: var(--papier);
+    border-color: var(--tinte);
+  }
+  .filter-knopf.aktiv .punkt{ box-shadow: 0 0 0 1px var(--papier); }
+
+  .filter-knopf.zuruecksetzen{
+    color: var(--rot);
+    border-color: var(--rot);
+    background: transparent;
+  }
+
+  .saison-abzeichen-reihe{
+    display: flex; gap: 5px; flex-wrap: wrap; margin-top: 6px;
+  }
+  .saison-abzeichen{
+    font-size: 0.66rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+  }
+  .saison-abzeichen.Frühling{ background: var(--fruehling); }
+  .saison-abzeichen.Sommer{ background: var(--sommer); }
+  .saison-abzeichen.Herbst{ background: var(--herbst); }
+  .saison-abzeichen.Winter{ background: var(--winter); }
+
+  .checkbox-reihe{
+    display: flex; gap: 14px; flex-wrap: wrap;
+  }
+  .checkbox-reihe label{
+    display: flex; align-items: center; gap: 5px;
+    font-size: 0.85rem; font-weight: 400;
+    text-transform: none; letter-spacing: normal;
+    color: var(--tinte); cursor: pointer;
+  }
+  .checkbox-reihe input[type="checkbox"]{
+    width: auto; accent-color: var(--magenta);
+  }
+
+  /* ============================================================
+     LOGIN-BILDSCHIRM (Passwortschutz)
+     ============================================================ */
+  #login-bildschirm{
+    position: fixed; inset: 0;
+    background: var(--papier-rand);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2000;
+    padding: 24px;
+  }
+  .login-karte{
+    background: var(--papier);
+    border-radius: 6px;
+    padding: 36px 32px;
+    max-width: 380px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.18);
+    position: relative;
+  }
+  .login-karte::before, .login-karte::after{
+    content: "";
+    position: absolute;
+    width: 20px; height: 20px;
+    border-color: var(--tinte-hell);
+    opacity: 0.45;
+  }
+  .login-karte::before{ top: 8px; left: 8px; border-top: 1px solid; border-left: 1px solid; }
+  .login-karte::after{ bottom: 8px; right: 8px; border-bottom: 1px solid; border-right: 1px solid; }
+
+  .login-karte h1{
+    font-family: 'Caveat', cursive;
+    font-size: 2rem;
+    margin: 0 0 6px;
+  }
+  .login-karte p.login-untertitel{
+    font-size: 0.85rem;
+    color: var(--tinte-hell);
+    margin: 0 0 20px;
+  }
+  #login-passwort-feld{
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--linie);
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  #login-fehler{
+    color: var(--rot);
+    font-size: 0.82rem;
+    min-height: 18px;
+    margin-bottom: 6px;
+  }
+  #login-knopf{
+    width: 100%;
+    background: var(--magenta);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+
+  /* ============================================================
+     LADE- UND SYNC-ANZEIGE (während Daten von GitHub geholt/gesendet werden)
+     ============================================================ */
+  #sync-anzeige{
+    position: fixed;
+    bottom: 16px; right: 16px;
+    background: var(--tinte);
+    color: var(--papier);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    z-index: 1500;
+    display: none;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  }
+  #sync-anzeige.sichtbar{ display: block; }
+  #sync-anzeige.fehler{ background: var(--rot); }
+
+  /* ---------- Layout ---------- */
+  .layout {
+    display: flex;
+    height: calc(100vh - 168px);
+    min-height: 480px;
+  }
+
+  #karte {
+    flex: 1 1 65%;
+    background: var(--papier-rand);
+  }
+
+  .leaflet-tile-pane { filter: sepia(22%) saturate(70%) brightness(1.05) contrast(0.96); }
+
+  aside.liste {
+    flex: 1 1 35%;
+    max-width: 380px;
+    min-width: 280px;
+    background: var(--papier);
+    border-left: 1px solid var(--linie);
+    overflow-y: auto;
+    padding: 18px;
+  }
+
+  aside.liste h2{
+    font-family: 'Caveat', cursive;
+    font-size: 1.5rem;
+    margin: 4px 0 14px;
+    color: var(--tinte);
+  }
+
+  .ort-karte {
+    border: 1px solid var(--linie);
+    border-radius: 4px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    background: #fff;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    position: relative;
+  }
+  .ort-karte:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(43,40,35,0.10);
+  }
+  .ort-karte.erledigt{ background: #F4F7F1; border-color: var(--gruen); }
+
+  .ort-karte-kopf{
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .ort-karte-titel{
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin: 0;
+    color: var(--tinte);
+  }
+  .ort-karte-kategorie{
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+
+  .ort-karte-beschreibung{
+    font-size: 0.85rem;
+    color: var(--tinte-hell);
+    margin: 4px 0 0;
+    line-height: 1.4;
+  }
+
+  .stempel{
+    font-size: 0.78rem;
+    color: var(--gruen);
+    font-weight: 600;
+    margin-top: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'Caveat', cursive;
+  }
+
+  .leer-hinweis{
+    font-size: 0.85rem;
+    color: var(--tinte-hell);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  /* ---------- Marker ---------- */
+  .eigener-marker{
+    width: 26px; height: 26px;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    border: 2px solid var(--papier);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.35);
+  }
+  .eigener-marker.offen{ background: var(--rot); }
+  .eigener-marker.fertig{ background: var(--gruen); }
+
+  /* ---------- Schnellmenü-Popup beim Rechtsklick ---------- */
+  .schnellmenu-popup .leaflet-popup-content-wrapper{
+    background: var(--tinte);
+    color: var(--papier);
+    border-radius: 6px;
+  }
+  .schnellmenu-popup .leaflet-popup-tip{ background: var(--tinte); }
+  .schnellmenu-knopf{
+    background: none; border: none; color: var(--papier);
+    font-family: 'Source Sans 3', sans-serif; font-size: 0.85rem;
+    cursor: pointer; padding: 4px 2px; display:block; width: 100%; text-align:left;
+  }
+  .schnellmenu-knopf:hover{ color: var(--gold); }
+
+  /* ============================================================
+     MODAL: das "separate Fenster" beim Klick auf eine Aktivität
+     ============================================================ */
+  .modal-hintergrund{
+    position: fixed; inset: 0;
+    background: rgba(43,40,35,0.55);
+    display: none;
+    align-items: center; justify-content: center;
+    z-index: 1000;
+    padding: 24px;
+  }
+  .modal-hintergrund.sichtbar{ display: flex; }
+
+  .modal-fenster{
+    background: var(--papier);
+    border-radius: 6px;
+    max-width: 480px;
+    width: 100%;
+    max-height: 88vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+    padding: 28px 28px 24px;
+  }
+
+  .modal-fenster::before, .modal-fenster::after{
+    content: "";
+    position: absolute;
+    width: 20px; height: 20px;
+    border-color: var(--tinte-hell);
+    opacity: 0.45;
+  }
+  .modal-fenster::before{ top: 8px; left: 8px; border-top: 1px solid; border-left: 1px solid; }
+  .modal-fenster::after{ bottom: 8px; right: 8px; border-bottom: 1px solid; border-right: 1px solid; }
+
+  .modal-schliessen{
+    position: absolute; top: 10px; right: 14px;
+    background: none; border: none;
+    font-size: 1.6rem; color: var(--tinte-hell);
+    cursor: pointer; line-height: 1;
+  }
+  .modal-schliessen:hover{ color: var(--rot); }
+
+  .modal-kategorie{
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--gold); margin-bottom: 4px;
+  }
+  .modal-titel{
+    font-family: 'Caveat', cursive; font-weight: 700;
+    font-size: 2rem; margin: 0 0 10px; color: var(--tinte);
+  }
+  .modal-bild{
+    width: 100%; max-height: 240px; object-fit: cover;
+    border-radius: 4px; margin-bottom: 14px;
+    border: 1px solid var(--linie);
+    display: block;
+  }
+  .modal-beschreibung{
+    font-size: 0.95rem; line-height: 1.55; color: var(--tinte);
+    margin-bottom: 10px;
+  }
+  .modal-datum{
+    font-size: 0.82rem; color: var(--tinte-hell); margin-bottom: 16px;
+    font-style: italic;
+  }
+
+  .modal-knopf-reihe{ display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+  .knopf{
+    border: none; border-radius: 5px; padding: 9px 16px;
+    font-size: 0.88rem; font-weight: 600; cursor: pointer;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+  .knopf.primaer{ background: var(--magenta); color: white; }
+  .knopf.primaer.fertig-stil{ background: var(--gruen); }
+  .knopf.sekundaer{ background: transparent; color: var(--tinte-hell); border: 1px solid var(--linie); }
+  .knopf.gefahr{ background: transparent; color: var(--rot); border: 1px solid var(--rot); }
+
+  /* ============================================================
+     FORMULAR: Ort hinzufügen / bearbeiten
+     ============================================================ */
+  .formular-feld{ margin-bottom: 14px; }
+  .formular-feld label{
+    display: block; font-size: 0.8rem; font-weight: 600;
+    color: var(--tinte-hell); margin-bottom: 4px;
+    text-transform: uppercase; letter-spacing: 0.03em;
+  }
+  .formular-feld input, .formular-feld textarea, .formular-feld select{
+    width: 100%; padding: 8px 10px;
+    border: 1px solid var(--linie); border-radius: 5px;
+    font-family: 'Source Sans 3', sans-serif; font-size: 0.92rem;
+    background: #fff; color: var(--tinte);
+  }
+  .formular-feld textarea{ resize: vertical; min-height: 70px; }
+  .formular-feld input:focus, .formular-feld textarea:focus, .formular-feld select:focus{
+    outline: 2px solid var(--magenta); outline-offset: 1px;
+  }
+  .formular-hinweis{
+    font-size: 0.78rem; color: var(--tinte-hell); margin-top: -8px; margin-bottom: 14px;
+  }
+  .koordinaten-hinweis{
+    font-size: 0.78rem; color: var(--gold); margin-bottom: 14px;
+    background: #FBF3E2; padding: 8px 10px; border-radius: 5px;
+  }
+
+  @media (max-width: 760px){
+    .layout{ flex-direction: column; height: auto; }
+    #karte{ height: 55vh; }
+    aside.liste{ max-width: none; border-left:none; border-top: 1px solid var(--linie); }
+  }
+</style>
+</head>
+<body>
+
+<!-- LOGIN-BILDSCHIRM: erscheint zuerst, blockiert alles dahinter -->
+<div id="login-bildschirm">
+  <div class="login-karte">
+    <h1>♡ Magdas Reise</h1>
+    <p class="login-untertitel">Privater Zugang — bitte Passwort eingeben.</p>
+    <input type="password" id="login-passwort-feld" placeholder="Passwort" autocomplete="off">
+    <p id="login-fehler"></p>
+    <button id="login-knopf">Eintreten</button>
+  </div>
+</div>
+
+<!-- SYNC-ANZEIGE: kleiner Hinweis unten rechts, ob Daten gerade synchronisiert werden -->
+<div id="sync-anzeige"></div>
+
+<header>
+  <div class="titel-zeile">
+    <h1><span class="herz">♡</span>Magdas Reise durch die Welt</h1>
+  </div>
+  <p class="untertitel">Orte und Abenteuer, die auf uns warten — und die wir schon erlebt haben.</p>
+  <div class="fortschritt-leiste-wrap">
+    <div class="fortschritt-text">
+      <span id="fortschritt-zahlen">0 von 0 erledigt</span>
+      <span id="fortschritt-prozent">0%</span>
+    </div>
+    <div class="fortschritt-leiste"><div class="fortschritt-fuellung" id="fortschritt-fuellung"></div></div>
+  </div>
+  <p class="hinweis-zeile">Tipp: Rechtsklick auf die Karte, um einen neuen Ort einzutragen.</p>
+  <div class="filter-leiste" id="saison-filter-leiste">
+    <button class="filter-knopf" data-saison="Frühling"><span class="punkt"></span>Frühling</button>
+    <button class="filter-knopf" data-saison="Sommer"><span class="punkt"></span>Sommer</button>
+    <button class="filter-knopf" data-saison="Herbst"><span class="punkt"></span>Herbst</button>
+    <button class="filter-knopf" data-saison="Winter"><span class="punkt"></span>Winter</button>
+    <button class="filter-knopf zuruecksetzen" id="filter-zuruecksetzen-knopf" style="display:none;">✕ Filter zurücksetzen</button>
+  </div>
+</header>
+
+<div class="layout">
+  <div id="karte"></div>
+  <aside class="liste">
+    <h2>Alle Orte</h2>
+    <div id="orte-liste"></div>
+  </aside>
+</div>
+
+<!-- MODAL 1: Detailansicht eines Orts (das "separate Fenster") -->
+<div class="modal-hintergrund" id="detail-modal-hintergrund">
+  <div class="modal-fenster">
+    <button class="modal-schliessen" onclick="schliesseDetailModal()">&times;</button>
+    <div class="modal-kategorie" id="detail-kategorie"></div>
+    <h2 class="modal-titel" id="detail-titel"></h2>
+    <div class="saison-abzeichen-reihe" id="detail-saison-abzeichen"></div>
+    <img class="modal-bild" id="detail-bild" src="" alt="" style="display:none;">
+    <p class="modal-beschreibung" id="detail-beschreibung"></p>
+    <p class="modal-datum" id="detail-datum"></p>
+    <div class="modal-knopf-reihe">
+      <button class="knopf primaer" id="detail-status-knopf" onclick="statusUmschaltenAusModal()"></button>
+      <button class="knopf sekundaer" id="detail-bearbeiten-knopf" onclick="oeffneBearbeitenAusDetail()">Bearbeiten</button>
+      <button class="knopf gefahr" onclick="loescheOrtAusModal()">Löschen</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 2: Formular zum Hinzufügen / Bearbeiten eines Orts -->
+<div class="modal-hintergrund" id="formular-modal-hintergrund">
+  <div class="modal-fenster">
+    <button class="modal-schliessen" onclick="schliesseFormularModal()">&times;</button>
+    <h2 class="modal-titel" id="formular-titel">Neuer Ort</h2>
+
+    <div class="koordinaten-hinweis" id="koordinaten-anzeige"></div>
+
+    <div class="formular-feld">
+      <label for="feld-name">Name</label>
+      <input type="text" id="feld-name" placeholder="z. B. Zermatt">
+    </div>
+
+    <div class="formular-feld">
+      <label for="feld-kategorie">Kategorie</label>
+      <select id="feld-kategorie">
+        <option>Natur</option>
+        <option>Wanderung</option>
+        <option>Stadt</option>
+        <option>Genuss</option>
+        <option>Übernachtung</option>
+        <option>Sonstiges</option>
+      </select>
+    </div>
+
+    <div class="formular-feld">
+      <label for="feld-beschreibung">Beschreibung</label>
+      <textarea id="feld-beschreibung" placeholder="Was erwartet euch dort?"></textarea>
+    </div>
+
+    <div class="formular-feld">
+      <label>Jahreszeit(en)</label>
+      <div class="checkbox-reihe">
+        <label><input type="checkbox" id="feld-saison-fruehling" value="Frühling"> Frühling</label>
+        <label><input type="checkbox" id="feld-saison-sommer" value="Sommer"> Sommer</label>
+        <label><input type="checkbox" id="feld-saison-herbst" value="Herbst"> Herbst</label>
+        <label><input type="checkbox" id="feld-saison-winter" value="Winter"> Winter</label>
+      </div>
+    </div>
+
+    <div class="formular-feld">
+      <label for="feld-bild-url">Bild-URL (optional)</label>
+      <input type="text" id="feld-bild-url" placeholder="https://...">
+    </div>
+    <p class="formular-hinweis">Link zu einem Bild im Web, z. B. aus Google Fotos (dort: Bild öffnen → Teilen → Link kopieren) oder einer beliebigen Bilder-Seite.</p>
+
+    <div class="formular-feld">
+      <label for="feld-datum">Datum (optional)</label>
+      <input type="text" id="feld-datum" placeholder="z. B. 30.01. – 01.02.2026">
+    </div>
+
+    <div class="modal-knopf-reihe">
+      <button class="knopf primaer" onclick="formularSpeichern()">Ort speichern</button>
+      <button class="knopf sekundaer" onclick="schliesseFormularModal()">Abbrechen</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   ⚙️ KONFIGURATION — HIER TRÄGST DU DEINE EIGENEN WERTE EIN
+   ============================================================
+   1. PASSWORT: das Passwort, das du und deine Freundin verwendet
+   2. WORKER_URL: die Adresse deines Cloudflare Workers
+      (siehst du nach dem Veröffentlichen, z.B.
+       "https://magdas-reise-api.deinname.workers.dev")
+   ============================================================ */
+const KONFIGURATION = {
+  PASSWORT: "MMANSC24012026",
+  WORKER_URL: "WORKER_URL: "https://reiseumdiewelt.schmitznoe121.workers.dev""
+};
+
+/* ============================================================
+   LOGIN: einfacher Passwortschutz
+   ============================================================ */
+const LOGIN_SPEICHER_SCHLUESSEL = "magdas-reise-eingeloggt";
+
+function pruefeLogin() {
+  // Schon in dieser Browser-Sitzung eingeloggt? Dann Login-Bildschirm überspringen.
+  if (sessionStorage.getItem(LOGIN_SPEICHER_SCHLUESSEL) === "ja") {
+    document.getElementById('login-bildschirm').style.display = 'none';
+    starteApp();
+  }
+}
+
+document.getElementById('login-knopf').addEventListener('click', versucheLogin);
+document.getElementById('login-passwort-feld').addEventListener('keydown', (ereignis) => {
+  if (ereignis.key === 'Enter') versucheLogin();
+});
+
+function versucheLogin() {
+  const eingabe = document.getElementById('login-passwort-feld').value;
+  if (eingabe === KONFIGURATION.PASSWORT) {
+    sessionStorage.setItem(LOGIN_SPEICHER_SCHLUESSEL, "ja");
+    document.getElementById('login-bildschirm').style.display = 'none';
+    starteApp();
+  } else {
+    document.getElementById('login-fehler').textContent = "Falsches Passwort, bitte erneut versuchen.";
+  }
+}
+
+/* ============================================================
+   SYNC-ANZEIGE: kleine Statusmeldung unten rechts
+   ============================================================ */
+function zeigeSyncStatus(text, istFehler) {
+  const anzeige = document.getElementById('sync-anzeige');
+  anzeige.textContent = text;
+  anzeige.classList.add('sichtbar');
+  anzeige.classList.toggle('fehler', !!istFehler);
+}
+
+function versteckeSyncStatusVerzoegert() {
+  setTimeout(() => {
+    document.getElementById('sync-anzeige').classList.remove('sichtbar');
+  }, 1800);
+}
+
+/* ============================================================
+   DATENSPEICHER ÜBER DEN CLOUDFLARE WORKER
+   Die Webseite spricht nicht mehr direkt mit GitHub, sondern mit
+   deinem Worker. Der Worker kennt das GitHub-Token (sicher
+   versteckt), die Webseite selbst kennt es nicht mehr.
+   ============================================================ */
+
+// Hilfsfunktionen zum Umwandeln zwischen Text und Base64
+// (GitHub verlangt Dateiinhalte in Base64-codierter Form)
+function textZuBase64(text) {
+  return btoa(unescape(encodeURIComponent(text)));
+}
+function base64ZuText(base64) {
+  return decodeURIComponent(escape(atob(base64)));
+}
+
+// Wir merken uns den "sha"-Wert der Datei (eine Art Versionsstempel),
+// den GitHub beim Aktualisieren verlangt, um Konflikte zu vermeiden.
+let aktuellerDateiSha = null;
+
+async function ladeOrteVonGithub() {
+  zeigeSyncStatus("Lade Orte …", false);
+  const antwort = await fetch(KONFIGURATION.WORKER_URL);
+
+  if (antwort.status === 404) {
+    // Datei existiert noch nicht im Repository -> wir starten mit den Beispiel-Orten
+    aktuellerDateiSha = null;
+    zeigeSyncStatus("Noch keine Daten online, starte mit Beispielen.", false);
+    versteckeSyncStatusVerzoegert();
+    return beispielOrte;
+  }
+
+  if (!antwort.ok) {
+    zeigeSyncStatus("Fehler beim Laden der Orte (siehe Konsole).", true);
+    console.error("Ladefehler:", antwort.status, await antwort.text());
+    return beispielOrte;
+  }
+
+  const daten = await antwort.json();
+  aktuellerDateiSha = daten.sha;
+  const inhalt = JSON.parse(base64ZuText(daten.content));
+  zeigeSyncStatus("Orte geladen ✓", false);
+  versteckeSyncStatusVerzoegert();
+  return inhalt;
+}
+
+async function speichereOrteAufGithub() {
+  zeigeSyncStatus("Speichere …", false);
+
+  const koerper = {
+    content: textZuBase64(JSON.stringify(orte, null, 2)),
+    sha: aktuellerDateiSha
+  };
+
+  const antwort = await fetch(KONFIGURATION.WORKER_URL, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(koerper)
+  });
+
+  if (!antwort.ok) {
+    zeigeSyncStatus("Fehler beim Speichern! Änderung evtl. verloren.", true);
+    console.error("Speicherfehler:", antwort.status, await antwort.text());
+    return;
+  }
+
+  const daten = await antwort.json();
+  aktuellerDateiSha = daten.content.sha; // neuen Versionsstempel merken
+  zeigeSyncStatus("Gespeichert ✓", false);
+  versteckeSyncStatusVerzoegert();
+}
+
+// Beibehaltener Funktionsname, jetzt aber asynchron (wartet auf den Worker)
+async function speichereOrte() {
+  await speichereOrteAufGithub();
+}
+
+const beispielOrte = [
+  {
+    id: 1,
+    name: "Trümmelbachfälle",
+    kategorie: "Natur",
+    beschreibung: "Zehn Gletscherwasserfälle im Innern des Berges, bei Lauterbrunnen. Tosend und ein bisschen unheimlich.",
+    bildUrl: "",
+    datum: "",
+    saisons: ["Frühling", "Sommer", "Herbst"],
+    lat: 46.5755, lng: 7.9080,
+    erledigt: false
+  },
+  {
+    id: 2,
+    name: "Oeschinensee",
+    kategorie: "Wanderung",
+    beschreibung: "Türkisblauer Bergsee bei Kandersteg, mit Sesselbahn erreichbar. Picknick einplanen.",
+    bildUrl: "",
+    datum: "",
+    saisons: ["Sommer"],
+    lat: 46.4989, lng: 7.7305,
+    erledigt: true
+  },
+  {
+    id: 3,
+    name: "Besuch in Zermatt",
+    kategorie: "Wanderung",
+    beschreibung: "Anreise mit dem Autozug durch den Lötschberg ab Aeschi b. Spiez. Besuch von Zermatt inkl. Abendessen, am Sonntag Briger Bad.",
+    bildUrl: "",
+    datum: "30.01. – 01.02.2026",
+    saisons: ["Winter"],
+    lat: 46.0207, lng: 7.7491,
+    erledigt: false
+  }
+];
+
+let orte = [];
+let naechsteId = 1;
+
+/* ============================================================
+   SAISON-FILTER: aktiver Filter (null = kein Filter aktiv)
+   ============================================================ */
+let aktiverSaisonFilter = null;
+
+function gefilterteOrte() {
+  if (!aktiverSaisonFilter) return orte;
+  return orte.filter(ort => (ort.saisons || []).includes(aktiverSaisonFilter));
+}
+
+/* ============================================================
+   KARTE AUFBAUEN
+   ============================================================ */
+const karte = L.map('karte', { scrollWheelZoom: true }).setView([46.8, 8.2], 8);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap-Mitwirkende',
+  maxZoom: 18
+}).addTo(karte);
+
+const markerNachId = {};
+
+function erzeugeMarkerIcon(ort) {
+  return L.divIcon({
+    className: '',
+    html: `<div class="eigener-marker ${ort.erledigt ? 'fertig' : 'offen'}"></div>`,
+    iconSize: [26, 26],
+    iconAnchor: [13, 24]
+  });
+}
+
+function baueAlleMarker() {
+  Object.values(markerNachId).forEach(m => karte.removeLayer(m));
+  for (const key in markerNachId) delete markerNachId[key];
+
+  gefilterteOrte().forEach(ort => {
+    const marker = L.marker([ort.lat, ort.lng], { icon: erzeugeMarkerIcon(ort) }).addTo(karte);
+    marker.on('click', () => oeffneDetailModal(ort.id));
+    markerNachId[ort.id] = marker;
+  });
+}
+
+/* ============================================================
+   RECHTSKLICK AUF DIE KARTE -> Schnellmenü "Ort hinzufügen"
+   ============================================================ */
+let letzteRechtsklickKoordinaten = null;
+
+karte.on('contextmenu', function(ereignis) {
+  letzteRechtsklickKoordinaten = ereignis.latlng;
+
+  const inhalt = document.createElement('div');
+  inhalt.innerHTML = `<button class="schnellmenu-knopf" id="schnellmenu-hinzufuegen-knopf">➕ Ort/Aktivität hier hinzufügen</button>`;
+
+  L.popup({ className: 'schnellmenu-popup', closeButton: false })
+    .setLatLng(ereignis.latlng)
+    .setContent(inhalt)
+    .openOn(karte);
+
+  setTimeout(() => {
+    const knopf = document.getElementById('schnellmenu-hinzufuegen-knopf');
+    if (knopf) {
+      knopf.addEventListener('click', () => {
+        karte.closePopup();
+        oeffneFormularModal(null, letzteRechtsklickKoordinaten);
+      });
+    }
+  }, 0);
+});
+
+/* ============================================================
+   SEITENLEISTE MIT LISTE ALLER ORTE
+   ============================================================ */
+function renderListe() {
+  const liste = document.getElementById('orte-liste');
+  liste.innerHTML = "";
+
+  const angezeigteOrte = gefilterteOrte();
+
+  if (orte.length === 0) {
+    liste.innerHTML = `<p class="leer-hinweis">Noch keine Orte eingetragen.<br>Rechtsklick auf die Karte, um den ersten Ort hinzuzufügen.</p>`;
+    return;
+  }
+
+  if (angezeigteOrte.length === 0) {
+    liste.innerHTML = `<p class="leer-hinweis">Keine Orte für diese Jahreszeit eingetragen.</p>`;
+    return;
+  }
+
+  angezeigteOrte.forEach(ort => {
+    const eintrag = document.createElement('div');
+    eintrag.className = 'ort-karte' + (ort.erledigt ? ' erledigt' : '');
+    const saisonBadges = (ort.saisons || []).map(s => `<span class="saison-abzeichen ${s}">${s}</span>`).join('');
+    eintrag.innerHTML = `
+      <div class="ort-karte-kopf">
+        <p class="ort-karte-titel">${escapeHtml(ort.name)}</p>
+        <span class="ort-karte-kategorie">${escapeHtml(ort.kategorie)}</span>
+      </div>
+      <p class="ort-karte-beschreibung">${escapeHtml(ort.beschreibung)}</p>
+      ${saisonBadges ? `<div class="saison-abzeichen-reihe">${saisonBadges}</div>` : ''}
+      ${ort.erledigt ? '<div class="stempel">♡ Schon erlebt</div>' : ''}
+    `;
+    eintrag.addEventListener('click', () => oeffneDetailModal(ort.id));
+    liste.appendChild(eintrag);
+  });
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text || "";
+  return div.innerHTML;
+}
+
+/* ============================================================
+   FORTSCHRITT OBEN ANZEIGEN
+   ============================================================ */
+function renderFortschritt() {
+  const sichtbareOrte = gefilterteOrte();
+  const gesamt = sichtbareOrte.length;
+  const erledigtAnzahl = sichtbareOrte.filter(o => o.erledigt).length;
+  const prozent = gesamt === 0 ? 0 : Math.round((erledigtAnzahl / gesamt) * 100);
+
+  document.getElementById('fortschritt-zahlen').textContent = `${erledigtAnzahl} von ${gesamt} erledigt`;
+  document.getElementById('fortschritt-prozent').textContent = `${prozent}%`;
+  document.getElementById('fortschritt-fuellung').style.width = `${prozent}%`;
+}
+
+/* ============================================================
+   DETAIL-MODAL (das "separate Fenster" pro Aktivität)
+   ============================================================ */
+let aktuelleDetailOrtId = null;
+
+function oeffneDetailModal(ortId) {
+  const ort = orte.find(o => o.id === ortId);
+  if (!ort) return;
+  aktuelleDetailOrtId = ortId;
+
+  document.getElementById('detail-kategorie').textContent = ort.kategorie;
+  document.getElementById('detail-titel').textContent = ort.name;
+  document.getElementById('detail-saison-abzeichen').innerHTML =
+    (ort.saisons || []).map(s => `<span class="saison-abzeichen ${s}">${s}</span>`).join('');
+  document.getElementById('detail-beschreibung').textContent = ort.beschreibung;
+  document.getElementById('detail-datum').textContent = ort.datum ? "📅 " + ort.datum : "";
+  document.getElementById('detail-datum').style.display = ort.datum ? 'block' : 'none';
+
+  const bild = document.getElementById('detail-bild');
+  if (ort.bildUrl) {
+    bild.src = ort.bildUrl;
+    bild.style.display = 'block';
+  } else {
+    bild.style.display = 'none';
+  }
+
+  const statusKnopf = document.getElementById('detail-status-knopf');
+  statusKnopf.textContent = ort.erledigt ? "Als nicht erledigt markieren" : "Als erledigt markieren";
+  statusKnopf.className = 'knopf primaer' + (ort.erledigt ? ' fertig-stil' : '');
+
+  document.getElementById('detail-modal-hintergrund').classList.add('sichtbar');
+}
+
+function schliesseDetailModal() {
+  document.getElementById('detail-modal-hintergrund').classList.remove('sichtbar');
+  aktuelleDetailOrtId = null;
+}
+
+async function statusUmschaltenAusModal() {
+  const ort = orte.find(o => o.id === aktuelleDetailOrtId);
+  if (!ort) return;
+  ort.erledigt = !ort.erledigt;
+  markerNachId[ort.id].setIcon(erzeugeMarkerIcon(ort));
+  renderListe();
+  renderFortschritt();
+  oeffneDetailModal(ort.id);
+  await speichereOrte();
+}
+
+async function loescheOrtAusModal() {
+  if (!confirm("Diesen Ort wirklich löschen?")) return;
+  orte = orte.filter(o => o.id !== aktuelleDetailOrtId);
+  schliesseDetailModal();
+  baueAlleMarker();
+  renderListe();
+  renderFortschritt();
+  await speichereOrte();
+}
+
+function oeffneBearbeitenAusDetail() {
+  const ortId = aktuelleDetailOrtId;
+  schliesseDetailModal();
+  oeffneFormularModal(ortId, null);
+}
+
+/* ============================================================
+   FORMULAR-MODAL (Hinzufügen ODER Bearbeiten)
+   ============================================================ */
+let formularBearbeitetOrtId = null; // null = neuer Ort
+let formularKoordinaten = null;
+
+function oeffneFormularModal(ortId, koordinaten) {
+  formularBearbeitetOrtId = ortId;
+
+  const anzeige = document.getElementById('koordinaten-anzeige');
+
+  if (ortId !== null) {
+    const ort = orte.find(o => o.id === ortId);
+    document.getElementById('formular-titel').textContent = "Ort bearbeiten";
+    document.getElementById('feld-name').value = ort.name;
+    document.getElementById('feld-kategorie').value = ort.kategorie;
+    document.getElementById('feld-beschreibung').value = ort.beschreibung;
+    document.getElementById('feld-bild-url').value = ort.bildUrl || "";
+    document.getElementById('feld-datum').value = ort.datum || "";
+    setzeSaisonCheckboxen(ort.saisons || []);
+    formularKoordinaten = { lat: ort.lat, lng: ort.lng };
+    anzeige.textContent = `📍 Position bleibt: ${ort.lat.toFixed(4)}, ${ort.lng.toFixed(4)}`;
+  } else {
+    document.getElementById('formular-titel').textContent = "Neuer Ort";
+    document.getElementById('feld-name').value = "";
+    document.getElementById('feld-kategorie').value = "Natur";
+    document.getElementById('feld-beschreibung').value = "";
+    document.getElementById('feld-bild-url').value = "";
+    document.getElementById('feld-datum').value = "";
+    setzeSaisonCheckboxen([]);
+    formularKoordinaten = koordinaten;
+    anzeige.textContent = `📍 Position: ${koordinaten.lat.toFixed(4)}, ${koordinaten.lng.toFixed(4)}`;
+  }
+
+  document.getElementById('formular-modal-hintergrund').classList.add('sichtbar');
+}
+
+function schliesseFormularModal() {
+  document.getElementById('formular-modal-hintergrund').classList.remove('sichtbar');
+  formularBearbeitetOrtId = null;
+  formularKoordinaten = null;
+}
+
+function setzeSaisonCheckboxen(ausgewaehlteSaisons) {
+  document.getElementById('feld-saison-fruehling').checked = ausgewaehlteSaisons.includes('Frühling');
+  document.getElementById('feld-saison-sommer').checked = ausgewaehlteSaisons.includes('Sommer');
+  document.getElementById('feld-saison-herbst').checked = ausgewaehlteSaisons.includes('Herbst');
+  document.getElementById('feld-saison-winter').checked = ausgewaehlteSaisons.includes('Winter');
+}
+
+function leseSaisonCheckboxen() {
+  const ausgewaehlt = [];
+  if (document.getElementById('feld-saison-fruehling').checked) ausgewaehlt.push('Frühling');
+  if (document.getElementById('feld-saison-sommer').checked) ausgewaehlt.push('Sommer');
+  if (document.getElementById('feld-saison-herbst').checked) ausgewaehlt.push('Herbst');
+  if (document.getElementById('feld-saison-winter').checked) ausgewaehlt.push('Winter');
+  return ausgewaehlt;
+}
+
+function formularSpeichern() {
+  const name = document.getElementById('feld-name').value.trim();
+  if (!name) {
+    alert("Bitte einen Namen eingeben.");
+    return;
+  }
+
+  const daten = {
+    name: name,
+    kategorie: document.getElementById('feld-kategorie').value,
+    beschreibung: document.getElementById('feld-beschreibung').value.trim(),
+    bildUrl: document.getElementById('feld-bild-url').value.trim(),
+    datum: document.getElementById('feld-datum').value.trim(),
+    saisons: leseSaisonCheckboxen(),
+    lat: formularKoordinaten.lat,
+    lng: formularKoordinaten.lng
+  };
+
+  if (formularBearbeitetOrtId !== null) {
+    const ort = orte.find(o => o.id === formularBearbeitetOrtId);
+    Object.assign(ort, daten);
+  } else {
+    orte.push({ id: naechsteId++, erledigt: false, ...daten });
+  }
+
+  schliesseFormularModal();
+  baueAlleMarker();
+  renderListe();
+  renderFortschritt();
+  speichereOrte();
+}
+
+/* ============================================================
+   SAISON-FILTERKNÖPFE: Klick-Logik
+   ============================================================ */
+function aktualisiereFilterAnsicht() {
+  document.querySelectorAll('.filter-knopf[data-saison]').forEach(knopf => {
+    knopf.classList.toggle('aktiv', knopf.dataset.saison === aktiverSaisonFilter);
+  });
+  document.getElementById('filter-zuruecksetzen-knopf').style.display = aktiverSaisonFilter ? 'inline-flex' : 'none';
+}
+
+document.querySelectorAll('.filter-knopf[data-saison]').forEach(knopf => {
+  knopf.addEventListener('click', () => {
+    const saison = knopf.dataset.saison;
+    // Erneuter Klick auf bereits aktiven Filter -> Filter aufheben
+    aktiverSaisonFilter = (aktiverSaisonFilter === saison) ? null : saison;
+    aktualisiereFilterAnsicht();
+    baueAlleMarker();
+    renderListe();
+    renderFortschritt();
+  });
+});
+
+document.getElementById('filter-zuruecksetzen-knopf').addEventListener('click', () => {
+  aktiverSaisonFilter = null;
+  aktualisiereFilterAnsicht();
+  baueAlleMarker();
+  renderListe();
+  renderFortschritt();
+});
+
+/* ============================================================
+   Modals per Klick auf den dunklen Hintergrund schliessen
+   ============================================================ */
+document.getElementById('detail-modal-hintergrund').addEventListener('click', function(ereignis) {
+  if (ereignis.target === this) schliesseDetailModal();
+});
+document.getElementById('formular-modal-hintergrund').addEventListener('click', function(ereignis) {
+  if (ereignis.target === this) schliesseFormularModal();
+});
+
+/* ============================================================
+   ALLES STARTEN
+   Läuft erst NACH erfolgreichem Login, lädt zuerst die Orte
+   von GitHub, bevor irgendetwas gezeichnet wird.
+   ============================================================ */
+async function starteApp() {
+  orte = await ladeOrteVonGithub();
+  naechsteId = Math.max(0, ...orte.map(o => o.id)) + 1;
+
+  baueAlleMarker();
+  renderListe();
+  renderFortschritt();
+}
+
+// Beim Laden der Seite prüfen, ob schon eingeloggt (z.B. nach Neuladen der Seite)
+pruefeLogin();
+</script>
+
+</body>
+</html>
