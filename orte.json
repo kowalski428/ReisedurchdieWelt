@@ -42,19 +42,5 @@
     "lat": 46.0207,
     "lng": 7.7491,
     "erledigt": false
-  },
-  {
-    "id": 4,
-    "erledigt": false,
-    "name": "Test",
-    "kategorie": "Natur",
-    "beschreibung": "",
-    "bildUrl": "",
-    "datum": "",
-    "saisons": [
-      "Frühling"
-    ],
-    "lat": 46.66365350093967,
-    "lng": 7.861817535031893
   }
 ]
