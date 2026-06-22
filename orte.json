@@ -1,16 +1,1 @@
-[
-  {
-    "id": 3,
-    "name": "Besuch in Zermatt",
-    "kategorie": "Wanderung",
-    "beschreibung": "Anreise mit dem Autozug durch den Lötschberg ab Aeschi b. Spiez. Besuch von Zermatt inkl. Abendessen, am Sonntag Briger Bad.",
-    "bildUrl": "",
-    "datum": "30.01. – 01.02.2026",
-    "saisons": [
-      "Winter"
-    ],
-    "lat": 46.0207,
-    "lng": 7.7491,
-    "erledigt": false
-  }
-]
+[]
