@@ -6,9 +6,13 @@
     "beschreibung": "Zehn Gletscherwasserfälle im Innern des Berges, bei Lauterbrunnen. Tosend und ein bisschen unheimlich.",
     "bildUrl": "",
     "datum": "",
-    "saisons": ["Frühling", "Sommer", "Herbst"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst"
+    ],
     "lat": 46.5755,
-    "lng": 7.9080,
+    "lng": 7.908,
     "erledigt": false
   },
   {
@@ -18,7 +22,9 @@
     "beschreibung": "Türkisblauer Bergsee bei Kandersteg, mit Sesselbahn erreichbar. Picknick einplanen.",
     "bildUrl": "",
     "datum": "",
-    "saisons": ["Sommer"],
+    "saisons": [
+      "Sommer"
+    ],
     "lat": 46.4989,
     "lng": 7.7305,
     "erledigt": true
@@ -30,9 +36,25 @@
     "beschreibung": "Anreise mit dem Autozug durch den Lötschberg ab Aeschi b. Spiez. Besuch von Zermatt inkl. Abendessen, am Sonntag Briger Bad.",
     "bildUrl": "",
     "datum": "30.01. – 01.02.2026",
-    "saisons": ["Winter"],
+    "saisons": [
+      "Winter"
+    ],
     "lat": 46.0207,
     "lng": 7.7491,
     "erledigt": false
+  },
+  {
+    "id": 4,
+    "erledigt": false,
+    "name": "Test",
+    "kategorie": "Natur",
+    "beschreibung": "",
+    "bildUrl": "",
+    "datum": "",
+    "saisons": [
+      "Frühling"
+    ],
+    "lat": 46.66365350093967,
+    "lng": 7.861817535031893
   }
 ]
