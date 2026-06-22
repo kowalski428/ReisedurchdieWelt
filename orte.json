@@ -16,20 +16,6 @@
     "erledigt": false
   },
   {
-    "id": 2,
-    "name": "Oeschinensee",
-    "kategorie": "Wanderung",
-    "beschreibung": "Türkisblauer Bergsee bei Kandersteg, mit Sesselbahn erreichbar. Picknick einplanen.",
-    "bildUrl": "",
-    "datum": "",
-    "saisons": [
-      "Sommer"
-    ],
-    "lat": 46.4989,
-    "lng": 7.7305,
-    "erledigt": true
-  },
-  {
     "id": 3,
     "name": "Besuch in Zermatt",
     "kategorie": "Wanderung",
