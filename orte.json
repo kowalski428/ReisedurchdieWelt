@@ -1,21 +1,5 @@
 [
   {
-    "id": 1,
-    "name": "Trümmelbachfälle",
-    "kategorie": "Natur",
-    "beschreibung": "Zehn Gletscherwasserfälle im Innern des Berges, bei Lauterbrunnen. Tosend und ein bisschen unheimlich.",
-    "bildUrl": "",
-    "datum": "",
-    "saisons": [
-      "Frühling",
-      "Sommer",
-      "Herbst"
-    ],
-    "lat": 46.5755,
-    "lng": 7.908,
-    "erledigt": false
-  },
-  {
     "id": 3,
     "name": "Besuch in Zermatt",
     "kategorie": "Wanderung",
