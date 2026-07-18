@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "id": 1,
+    "erledigt": false,
+    "name": "tgth",
+    "kategorie": "Natur",
+    "beschreibung": "rtrtr",
+    "bildUrl": "",
+    "datum": "",
+    "saisons": [
+      "Frühling"
+    ],
+    "lat": 46.66943529160089,
+    "lng": 7.833505988709929
+  }
+]
