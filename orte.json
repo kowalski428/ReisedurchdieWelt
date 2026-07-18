@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": 1,
+    "erledigt": false,
+    "name": "Europa-Park",
+    "kategorie": "Tagesausflug",
+    "beschreibung": "",
+    "bildUrl": "",
+    "datumVon": "2026-08-18",
+    "datumBis": "",
+    "saisons": [
+      "Sommer"
+    ],
+    "lat": 48.2649865,
+    "lng": 7.720728
+  }
+]
