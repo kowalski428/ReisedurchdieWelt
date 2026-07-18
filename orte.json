@@ -7,7 +7,11 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst"
+    ],
     "lat": 47.3769,
     "lng": 8.5417,
     "erledigt": false
@@ -20,7 +24,12 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst", "Winter"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst",
+      "Winter"
+    ],
     "lat": 47.3769,
     "lng": 8.5417,
     "erledigt": false
@@ -33,8 +42,12 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst"],
-    "lat": 47.0,
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst"
+    ],
+    "lat": 47,
     "lng": 8.3,
     "erledigt": false
   },
@@ -46,7 +59,11 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst"
+    ],
     "lat": 47.3769,
     "lng": 8.5417,
     "erledigt": false
@@ -59,7 +76,11 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst"
+    ],
     "lat": 47.1,
     "lng": 8.8,
     "erledigt": false
@@ -72,7 +93,9 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Sommer"],
+    "saisons": [
+      "Sommer"
+    ],
     "lat": 46.9481,
     "lng": 7.4474,
     "erledigt": false
@@ -85,8 +108,12 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst"],
-    "lat": 47.0,
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst"
+    ],
+    "lat": 47,
     "lng": 8.3,
     "erledigt": false
   },
@@ -98,8 +125,10 @@
     "bildUrl": "",
     "datumVon": "2026-08-12",
     "datumBis": "2026-08-12",
-    "saisons": ["Sommer"],
-    "lat": 47.0,
+    "saisons": [
+      "Sommer"
+    ],
+    "lat": 47,
     "lng": 8.3,
     "erledigt": false
   },
@@ -111,7 +140,10 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer"],
+    "saisons": [
+      "Frühling",
+      "Sommer"
+    ],
     "lat": 47.3,
     "lng": 8.1,
     "erledigt": false
@@ -124,7 +156,11 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst"
+    ],
     "lat": 47.3,
     "lng": 8.5,
     "erledigt": false
@@ -137,7 +173,12 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst", "Winter"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst",
+      "Winter"
+    ],
     "lat": 47.3769,
     "lng": 8.5417,
     "erledigt": false
@@ -150,7 +191,11 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst"
+    ],
     "lat": 47.2,
     "lng": 8.7,
     "erledigt": false
@@ -163,7 +208,11 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst"
+    ],
     "lat": 47.3769,
     "lng": 8.5417,
     "erledigt": false
@@ -176,7 +225,12 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst", "Winter"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst",
+      "Winter"
+    ],
     "lat": 47.3769,
     "lng": 8.5417,
     "erledigt": false
@@ -189,7 +243,12 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst", "Winter"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst",
+      "Winter"
+    ],
     "lat": 47.3769,
     "lng": 8.5417,
     "erledigt": false
@@ -202,7 +261,9 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Winter"],
+    "saisons": [
+      "Winter"
+    ],
     "lat": 46.9481,
     "lng": 7.4474,
     "erledigt": false
@@ -215,7 +276,12 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst", "Winter"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst",
+      "Winter"
+    ],
     "lat": 47.3769,
     "lng": 8.5417,
     "erledigt": false
@@ -228,7 +294,12 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst", "Winter"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst",
+      "Winter"
+    ],
     "lat": 47.3769,
     "lng": 8.5417,
     "erledigt": false
@@ -241,7 +312,12 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst", "Winter"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst",
+      "Winter"
+    ],
     "lat": 47.3769,
     "lng": 8.5417,
     "erledigt": false
@@ -254,7 +330,9 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Sommer"],
+    "saisons": [
+      "Sommer"
+    ],
     "lat": 47.2,
     "lng": 8.7,
     "erledigt": false
@@ -267,7 +345,12 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst", "Winter"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst",
+      "Winter"
+    ],
     "lat": 47.0012,
     "lng": 9.5015,
     "erledigt": false
@@ -280,7 +363,9 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Sommer"],
+    "saisons": [
+      "Sommer"
+    ],
     "lat": 47.0158,
     "lng": 9.3842,
     "erledigt": false
@@ -293,7 +378,10 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Sommer", "Herbst"],
+    "saisons": [
+      "Sommer",
+      "Herbst"
+    ],
     "lat": 47.0642,
     "lng": 9.3272,
     "erledigt": false
@@ -306,7 +394,12 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst", "Winter"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst",
+      "Winter"
+    ],
     "lat": 47.4222,
     "lng": 9.3006,
     "erledigt": false
@@ -319,7 +412,12 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst", "Winter"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst",
+      "Winter"
+    ],
     "lat": 47.1667,
     "lng": 9.0333,
     "erledigt": false
@@ -332,7 +430,12 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst", "Winter"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst",
+      "Winter"
+    ],
     "lat": 47.3764,
     "lng": 9.3841,
     "erledigt": false
@@ -345,7 +448,10 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Sommer", "Herbst"],
+    "saisons": [
+      "Sommer",
+      "Herbst"
+    ],
     "lat": 46.1081,
     "lng": 7.5009,
     "erledigt": false
@@ -358,7 +464,9 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Sommer"],
+    "saisons": [
+      "Sommer"
+    ],
     "lat": 46.1867,
     "lng": 7.3025,
     "erledigt": false
@@ -371,7 +479,9 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Sommer"],
+    "saisons": [
+      "Sommer"
+    ],
     "lat": 46.2939,
     "lng": 7.8823,
     "erledigt": false
@@ -384,7 +494,10 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Sommer", "Winter"],
+    "saisons": [
+      "Sommer",
+      "Winter"
+    ],
     "lat": 46.0207,
     "lng": 7.7491,
     "erledigt": false
@@ -397,7 +510,9 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Sommer"],
+    "saisons": [
+      "Sommer"
+    ],
     "lat": 46.2617,
     "lng": 8.8369,
     "erledigt": false
@@ -410,7 +525,9 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Sommer"],
+    "saisons": [
+      "Sommer"
+    ],
     "lat": 46.1617,
     "lng": 8.7647,
     "erledigt": false
@@ -423,7 +540,11 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst"
+    ],
     "lat": 46.5167,
     "lng": 8.7,
     "erledigt": false
@@ -436,7 +557,12 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst", "Winter"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst",
+      "Winter"
+    ],
     "lat": 46.1617,
     "lng": 8.7647,
     "erledigt": false
@@ -449,9 +575,13 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst"
+    ],
     "lat": 46.2667,
-    "lng": 8.8500,
+    "lng": 8.85,
     "erledigt": false
   },
   {
@@ -462,7 +592,11 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst"
+    ],
     "lat": 47.3258,
     "lng": 8.8003,
     "erledigt": false
@@ -475,7 +609,12 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst", "Winter"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst",
+      "Winter"
+    ],
     "lat": 47.3732,
     "lng": 8.5413,
     "erledigt": false
@@ -488,7 +627,11 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst"
+    ],
     "lat": 47.4008,
     "lng": 8.4017,
     "erledigt": false
@@ -501,7 +644,11 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst"
+    ],
     "lat": 47.3558,
     "lng": 8.5556,
     "erledigt": false
@@ -514,7 +661,11 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst"
+    ],
     "lat": 47.2975,
     "lng": 8.5078,
     "erledigt": false
@@ -527,8 +678,10 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Sommer"],
-    "lat": 46.6240,
+    "saisons": [
+      "Sommer"
+    ],
+    "lat": 46.624,
     "lng": 8.0419,
     "erledigt": false
   },
@@ -540,7 +693,9 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Sommer"],
+    "saisons": [
+      "Sommer"
+    ],
     "lat": 46.5703,
     "lng": 8.2931,
     "erledigt": false
@@ -553,22 +708,11 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Sommer"],
+    "saisons": [
+      "Sommer"
+    ],
     "lat": 46.9531,
     "lng": 7.4503,
-    "erledigt": false
-  },
-  {
-    "id": 44,
-    "name": "Tropenhaus Fruttigen",
-    "kategorie": "Tagesausflug",
-    "beschreibung": "Tropenhausweg 1, 3714 Fruttigen. 10:00–23:00. Gratis Eintritt. Gute Laune und Wissensdurst. tropenhaus-fruttigen.ch",
-    "bildUrl": "",
-    "datumVon": "",
-    "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst", "Winter"],
-    "lat": 46.5887,
-    "lng": 7.6465,
     "erledigt": false
   },
   {
@@ -579,7 +723,11 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst"
+    ],
     "lat": 46.9717,
     "lng": 7.5689,
     "erledigt": false
@@ -592,7 +740,12 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst", "Winter"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst",
+      "Winter"
+    ],
     "lat": 47.5596,
     "lng": 7.5886,
     "erledigt": false
@@ -605,7 +758,12 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst", "Winter"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst",
+      "Winter"
+    ],
     "lat": 47.5556,
     "lng": 7.7956,
     "erledigt": false
@@ -618,7 +776,12 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst", "Winter"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst",
+      "Winter"
+    ],
     "lat": 47.5596,
     "lng": 7.5886,
     "erledigt": false
@@ -631,7 +794,9 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Sommer"],
+    "saisons": [
+      "Sommer"
+    ],
     "lat": 47.5596,
     "lng": 7.5886,
     "erledigt": false
@@ -644,7 +809,11 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst"
+    ],
     "lat": 47.5489,
     "lng": 7.5722,
     "erledigt": false
@@ -657,9 +826,13 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst"],
-    "lat": 46.9350,
-    "lng": 6.7270,
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst"
+    ],
+    "lat": 46.935,
+    "lng": 6.727,
     "erledigt": false
   },
   {
@@ -670,7 +843,9 @@
     "bildUrl": "",
     "datumVon": "2027-06-30",
     "datumBis": "2027-07-15",
-    "saisons": ["Sommer"],
+    "saisons": [
+      "Sommer"
+    ],
     "lat": 46.4312,
     "lng": 6.9115,
     "erledigt": false
@@ -683,7 +858,12 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst", "Winter"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst",
+      "Winter"
+    ],
     "lat": 46.2542,
     "lng": 6.9981,
     "erledigt": false
@@ -696,7 +876,10 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Sommer", "Winter"],
+    "saisons": [
+      "Sommer",
+      "Winter"
+    ],
     "lat": 47.0028,
     "lng": 6.8839,
     "erledigt": false
@@ -709,7 +892,11 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst"
+    ],
     "lat": 46.6667,
     "lng": 7.1167,
     "erledigt": false
@@ -722,7 +909,11 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst"
+    ],
     "lat": 46.4778,
     "lng": 7.1353,
     "erledigt": false
@@ -735,9 +926,13 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst"
+    ],
     "lat": 46.8167,
-    "lng": 9.2500,
+    "lng": 9.25,
     "erledigt": false
   },
   {
@@ -748,7 +943,9 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Sommer"],
+    "saisons": [
+      "Sommer"
+    ],
     "lat": 46.8194,
     "lng": 9.2736,
     "erledigt": false
@@ -761,7 +958,9 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Sommer"],
+    "saisons": [
+      "Sommer"
+    ],
     "lat": 46.7231,
     "lng": 9.5628,
     "erledigt": false
@@ -774,7 +973,11 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst"
+    ],
     "lat": 46.7231,
     "lng": 9.5628,
     "erledigt": false
@@ -787,7 +990,9 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Sommer"],
+    "saisons": [
+      "Sommer"
+    ],
     "lat": 46.7828,
     "lng": 9.6758,
     "erledigt": false
@@ -800,7 +1005,9 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Sommer"],
+    "saisons": [
+      "Sommer"
+    ],
     "lat": 46.4556,
     "lng": 9.7967,
     "erledigt": false
@@ -813,7 +1020,12 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst", "Winter"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst",
+      "Winter"
+    ],
     "lat": 47.0502,
     "lng": 8.3093,
     "erledigt": false
@@ -826,7 +1038,9 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Sommer"],
+    "saisons": [
+      "Sommer"
+    ],
     "lat": 47.0028,
     "lng": 8.6528,
     "erledigt": false
@@ -839,7 +1053,9 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Sommer"],
+    "saisons": [
+      "Sommer"
+    ],
     "lat": 46.9786,
     "lng": 8.2522,
     "erledigt": false
@@ -852,7 +1068,12 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Frühling", "Sommer", "Herbst", "Winter"],
+    "saisons": [
+      "Frühling",
+      "Sommer",
+      "Herbst",
+      "Winter"
+    ],
     "lat": 47.0528,
     "lng": 8.3286,
     "erledigt": false
@@ -865,7 +1086,9 @@
     "bildUrl": "",
     "datumVon": "",
     "datumBis": "",
-    "saisons": ["Sommer"],
+    "saisons": [
+      "Sommer"
+    ],
     "lat": 46.9833,
     "lng": 8.5833,
     "erledigt": false
