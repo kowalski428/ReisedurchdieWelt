@@ -269,24 +269,6 @@
     "erledigt": false
   },
   {
-    "id": 17,
-    "name": "Wellness / Spa",
-    "kategorie": "Wellness",
-    "beschreibung": "aqua-spa-resorts.ch, soleuno.ch u.v.m. Wir empfehlen abends. 25–100 CHF. Badehose, Badetuch, Duschgel.",
-    "bildUrl": "",
-    "datumVon": "",
-    "datumBis": "",
-    "saisons": [
-      "Frühling",
-      "Sommer",
-      "Herbst",
-      "Winter"
-    ],
-    "lat": 47.5577385,
-    "lng": 7.7997194,
-    "erledigt": false
-  },
-  {
     "id": 18,
     "name": "Trampolinpark",
     "kategorie": "Aktivität",
