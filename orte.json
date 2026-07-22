@@ -1092,5 +1092,20 @@
     "lat": 46.9833,
     "lng": 8.5833,
     "erledigt": false
+  },
+  {
+    "id": 68,
+    "erledigt": false,
+    "name": "Via Ferrata",
+    "kategorie": "Tagesausflug",
+    "beschreibung": "Mausi klettert hoch hinaus",
+    "bildUrl": "https://imgs.search.brave.com/LK6qpGivs2epDXdpQtTjY4Qgp0Qc68YCXfYbcDfMoEw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTI4/NDU5MTY1OC9waG90/by95b3VuZy13b21l/bi1vbi12aWEtZmVy/cmF0YS1tb3Zpbmct/dXAtY2xpbWJpbmct/cm9jay5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9ZXdQNEVD/RTFwVVhuRGtNR0Fl/cVpqNkNZblA2aW9H/WjI3cHlobTZTeE05/VT0",
+    "datumVon": "",
+    "datumBis": "",
+    "saisons": [
+      "Sommer"
+    ],
+    "lat": 46.5591404,
+    "lng": 7.8928785
   }
 ]
