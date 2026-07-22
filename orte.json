@@ -1089,5 +1089,21 @@
     ],
     "lat": 46.5591404,
     "lng": 7.8928785
+  },
+  {
+    "id": 69,
+    "erledigt": false,
+    "name": "Swiss Shooting Range, 15",
+    "kategorie": "Aktivität",
+    "beschreibung": "Lets shoot",
+    "bildUrl": "",
+    "datumVon": "",
+    "datumBis": "",
+    "saisons": [
+      "Frühling",
+      "Sommer"
+    ],
+    "lat": 47.4313622,
+    "lng": 8.3688125
   }
 ]
