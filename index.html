@@ -196,26 +196,80 @@ aside.liste h2{font-family:'Caveat',cursive;font-size:1.4rem;margin-bottom:12px;
 
 <!-- HEADER -->
 <header>
-  <!-- Sichtbare Deko: Flaggen -->
-  <svg class="deko-element" style="right:60px;top:8px;width:44px;height:28px;" viewBox="0 0 44 28">
-    <!-- Schweizer Flagge -->
-    <rect x="0" y="0" width="20" height="20" fill="#D52B1E" rx="2"/>
-    <rect x="8" y="4" width="4" height="12" fill="white"/>
-    <rect x="4" y="8" width="12" height="4" fill="white"/>
-    <!-- Polnische Flagge -->
-    <rect x="24" y="0" width="20" height="10" fill="white" rx="2"/>
-    <rect x="24" y="10" width="20" height="10" fill="#DC143C"/>
-  </svg>
-  <!-- Versteckte Deko: Kleiner Berner Bär -->
-  <svg class="deko-element deko-versteckt" style="left:4px;bottom:4px;width:22px;height:22px;" viewBox="0 0 40 40">
-    <ellipse cx="20" cy="24" rx="12" ry="10" fill="#8B4513"/>
-    <circle cx="20" cy="14" r="8" fill="#8B4513"/>
-    <circle cx="16" cy="10" r="4" fill="#8B4513"/>
-    <circle cx="24" cy="10" r="4" fill="#8B4513"/>
-    <circle cx="17" cy="13" r="1.5" fill="#2B2823"/>
-    <circle cx="23" cy="13" r="1.5" fill="#2B2823"/>
-    <ellipse cx="20" cy="16" rx="3" ry="2" fill="#C4956A"/>
-  </svg>
+  <!-- Rechte Seite: Flaggen + Autos + Spiderman -->
+  <div style="position:absolute;right:12px;top:8px;display:flex;flex-direction:column;align-items:flex-end;gap:4px;z-index:2;">
+
+    <!-- Schweizer + Polnische Flagge nebeneinander -->
+    <div style="display:flex;gap:5px;align-items:center;">
+      <svg width="22" height="15" viewBox="0 0 22 15">
+        <rect x="0" y="0" width="22" height="15" fill="#D52B1E" rx="2"/>
+        <rect x="9" y="2" width="4" height="11" fill="white"/>
+        <rect x="5" y="5.5" width="12" height="4" fill="white"/>
+      </svg>
+      <svg width="22" height="15" viewBox="0 0 22 15">
+        <rect x="0" y="0" width="22" height="7.5" fill="white" rx="2"/>
+        <rect x="0" y="7.5" width="22" height="7.5" fill="#DC143C" rx="2"/>
+      </svg>
+    </div>
+
+    <!-- Gelbes + Rotes Auto -->
+    <div style="display:flex;gap:3px;align-items:flex-end;">
+      <!-- Gelbes Auto -->
+      <svg width="44" height="24" viewBox="0 0 55 30">
+        <rect x="5" y="14" width="44" height="13" rx="3" fill="#F1C40F"/>
+        <path d="M12 14 L16 6 L38 6 L44 14" fill="#F1C40F" stroke="#B7950B" stroke-width="1"/>
+        <circle cx="14" cy="27" r="4" fill="#2B2823"/><circle cx="14" cy="27" r="2" fill="#888"/>
+        <circle cx="38" cy="27" r="4" fill="#2B2823"/><circle cx="38" cy="27" r="2" fill="#888"/>
+        <rect x="18" y="7" width="18" height="7" rx="2" fill="#AED6F1" opacity=".85"/>
+        <rect x="44" y="17" width="5" height="3" rx="1" fill="#F39C12"/>
+        <rect x="5" y="17" width="4" height="3" rx="1" fill="#E74C3C" opacity=".6"/>
+      </svg>
+      <!-- Rotes Auto -->
+      <svg width="44" height="24" viewBox="0 0 55 30">
+        <rect x="5" y="14" width="44" height="13" rx="3" fill="#E74C3C"/>
+        <path d="M12 14 L17 6 L37 6 L43 14" fill="#E74C3C" stroke="#C0392B" stroke-width="1"/>
+        <circle cx="14" cy="27" r="4" fill="#2B2823"/><circle cx="14" cy="27" r="2" fill="#888"/>
+        <circle cx="38" cy="27" r="4" fill="#2B2823"/><circle cx="38" cy="27" r="2" fill="#888"/>
+        <rect x="19" y="7" width="17" height="7" rx="2" fill="#AED6F1" opacity=".85"/>
+        <rect x="44" y="17" width="5" height="3" rx="1" fill="#F39C12"/>
+        <rect x="5" y="17" width="4" height="3" rx="1" fill="#F0E68C" opacity=".7"/>
+      </svg>
+    </div>
+
+    <!-- Kleiner Spiderman hängt an einem Faden unter den Autos -->
+    <svg width="22" height="32" viewBox="0 0 36 50" style="margin-top:-2px;opacity:.75;">
+      <line x1="18" y1="0" x2="18" y2="8" stroke="#2B2823" stroke-width="1"/>
+      <ellipse cx="18" cy="12" rx="9" ry="10" fill="#C0392B"/>
+      <ellipse cx="12" cy="10" rx="4" ry="5" fill="white" opacity=".9"/>
+      <ellipse cx="24" cy="10" rx="4" ry="5" fill="white" opacity=".9"/>
+      <rect x="9" y="20" width="18" height="20" rx="4" fill="#C0392B"/>
+      <line x1="18" y1="20" x2="18" y2="40" stroke="#2B2823" stroke-width=".8"/>
+      <line x1="9" y1="28" x2="27" y2="28" stroke="#2B2823" stroke-width=".8"/>
+      <line x1="9" y1="20" x2="2" y2="32" stroke="#2B2823" stroke-width="1.2"/>
+      <line x1="27" y1="20" x2="34" y2="32" stroke="#2B2823" stroke-width="1.2"/>
+      <line x1="9" y1="40" x2="4" y2="50" stroke="#2B2823" stroke-width="1.2"/>
+      <line x1="27" y1="40" x2="32" y2="50" stroke="#2B2823" stroke-width="1.2"/>
+    </svg>
+  </div>
+
+  <!-- Linke Seite: Berner Bär (versteckt) + Herzchen -->
+  <div style="position:absolute;left:8px;bottom:8px;display:flex;gap:6px;align-items:flex-end;opacity:.4;">
+    <!-- Berner Bär mini -->
+    <svg width="20" height="20" viewBox="0 0 40 40">
+      <ellipse cx="20" cy="26" rx="12" ry="10" fill="#8B4513"/>
+      <circle cx="20" cy="14" r="8" fill="#8B4513"/>
+      <circle cx="15" cy="9" r="4" fill="#8B4513"/>
+      <circle cx="25" cy="9" r="4" fill="#8B4513"/>
+      <circle cx="17" cy="13" r="1.5" fill="#2B2823"/>
+      <circle cx="23" cy="13" r="1.5" fill="#2B2823"/>
+      <ellipse cx="20" cy="16" rx="3" ry="2" fill="#C4956A"/>
+    </svg>
+    <!-- Zwei Herzchen -->
+    <svg width="28" height="14" viewBox="0 0 60 30">
+      <path d="M10 8 C10 4 4 0 0 4 C-4 8 0 16 10 22 C20 16 24 8 20 4 C16 0 10 4 10 8Z" fill="#C0392B" transform="translate(5,4) scale(0.9)"/>
+      <path d="M10 8 C10 4 4 0 0 4 C-4 8 0 16 10 22 C20 16 24 8 20 4 C16 0 10 4 10 8Z" fill="#E74C3C" transform="translate(30,4) scale(0.9)"/>
+    </svg>
+  </div>
 
   <h1>Magda's und Noe's Reise durch die Welt</h1>
   <p class="untertitel">Orte und Abenteuer, die auf uns warten — und die wir schon erlebt haben.</p>
@@ -348,70 +402,18 @@ aside.liste h2{font-family:'Caveat',cursive;font-size:1.4rem;margin-bottom:12px;
   </div>
 </div>
 
-<!-- VERSTECKTE DEKO: Spiderman unten rechts in der Liste -->
-<svg id="deko-spiderman" style="position:fixed;bottom:20px;left:20px;width:36px;height:50px;opacity:.18;pointer-events:none;z-index:5;" viewBox="0 0 36 50">
-  <ellipse cx="18" cy="12" rx="9" ry="10" fill="#C0392B"/>
-  <ellipse cx="18" cy="12" rx="9" ry="10" fill="none" stroke="#2B2823" stroke-width=".8"/>
-  <ellipse cx="12" cy="10" rx="4" ry="5" fill="white" opacity=".9"/>
-  <ellipse cx="24" cy="10" rx="4" ry="5" fill="white" opacity=".9"/>
-  <rect x="9" y="20" width="18" height="20" rx="4" fill="#C0392B"/>
-  <line x1="18" y1="20" x2="18" y2="40" stroke="#2B2823" stroke-width=".8"/>
-  <line x1="9" y1="28" x2="27" y2="28" stroke="#2B2823" stroke-width=".8"/>
-  <line x1="9" y1="20" x2="2" y2="32" stroke="#2B2823" stroke-width="1.2"/>
-  <line x1="27" y1="20" x2="34" y2="32" stroke="#2B2823" stroke-width="1.2"/>
-  <line x1="9" y1="40" x2="4" y2="50" stroke="#2B2823" stroke-width="1.2"/>
-  <line x1="27" y1="40" x2="32" y2="50" stroke="#2B2823" stroke-width="1.2"/>
-</svg>
-
-<!-- SICHTBARE DEKO: Zwei Autos im Header-Bereich -->
-<div style="position:fixed;bottom:0;right:0;pointer-events:none;z-index:4;opacity:.7;">
-  <!-- Gelbes Auto -->
-  <svg width="55" height="30" viewBox="0 0 55 30" style="display:block;">
-    <rect x="5" y="14" width="44" height="13" rx="3" fill="#F1C40F"/>
-    <path d="M12 14 L16 6 L38 6 L44 14" fill="#F1C40F" stroke="#B7950B" stroke-width="1"/>
-    <circle cx="14" cy="27" r="4" fill="#2B2823"/>
-    <circle cx="14" cy="27" r="2" fill="#888"/>
-    <circle cx="38" cy="27" r="4" fill="#2B2823"/>
-    <circle cx="38" cy="27" r="2" fill="#888"/>
-    <rect x="18" y="7" width="18" height="7" rx="2" fill="#AED6F1" opacity=".8"/>
-    <rect x="44" y="17" width="5" height="3" rx="1" fill="#F39C12"/>
-    <rect x="5" y="17" width="4" height="3" rx="1" fill="#E74C3C" opacity=".6"/>
-  </svg>
-  <!-- Rotes Auto -->
-  <svg width="55" height="30" viewBox="0 0 55 30" style="display:block;margin-top:-4px;">
-    <rect x="5" y="14" width="44" height="13" rx="3" fill="#E74C3C"/>
-    <path d="M12 14 L17 6 L37 6 L43 14" fill="#E74C3C" stroke="#C0392B" stroke-width="1"/>
-    <circle cx="14" cy="27" r="4" fill="#2B2823"/>
-    <circle cx="14" cy="27" r="2" fill="#888"/>
-    <circle cx="38" cy="27" r="4" fill="#2B2823"/>
-    <circle cx="38" cy="27" r="2" fill="#888"/>
-    <rect x="19" y="7" width="17" height="7" rx="2" fill="#AED6F1" opacity=".8"/>
-    <rect x="44" y="17" width="5" height="3" rx="1" fill="#F39C12"/>
-    <rect x="5" y="17" width="4" height="3" rx="1" fill="#F0E68C" opacity=".7"/>
-  </svg>
-</div>
-
-<!-- VERSTECKTE DEKO: Wodka-Flasche und Pierogi, sehr dezent -->
-<svg style="position:fixed;top:50%;right:4px;width:16px;height:40px;opacity:.12;pointer-events:none;z-index:5;transform:translateY(-50%);" viewBox="0 0 16 40">
-  <!-- Wodka-Flasche -->
-  <rect x="5" y="0" width="6" height="5" rx="1" fill="#aaa"/>
-  <rect x="4" y="5" width="8" height="2" fill="#bbb"/>
-  <rect x="2" y="7" width="12" height="28" rx="4" fill="#DDF0FF" stroke="#aaa" stroke-width=".8"/>
-  <rect x="3" y="12" width="10" height="8" fill="white" opacity=".5" rx="1"/>
-</svg>
+<!-- Pierogi: versteckt unten links -->
 <svg style="position:fixed;bottom:60px;left:10px;width:28px;height:22px;opacity:.15;pointer-events:none;z-index:5;" viewBox="0 0 28 22">
-  <!-- Pierogi -->
   <ellipse cx="14" cy="14" rx="13" ry="8" fill="#F5DEB3" stroke="#C4956A" stroke-width="1.5"/>
   <path d="M2 12 Q14 4 26 12" fill="none" stroke="#C4956A" stroke-width="1.5"/>
   <path d="M4 13 Q7 11 10 13 Q13 11 16 13 Q19 11 22 13" fill="none" stroke="#B8860B" stroke-width=".8"/>
 </svg>
-
-<!-- POLNISCHER ADLER (sehr dezent, Header-Ecke) -->
-<svg style="position:fixed;top:8px;left:50%;transform:translateX(-50%);width:22px;height:22px;opacity:.1;pointer-events:none;z-index:5;" viewBox="0 0 40 40">
-  <ellipse cx="20" cy="24" rx="10" ry="8" fill="white"/>
-  <path d="M20 16 L10 8 L8 18 L4 12 L10 24 L20 26 L30 24 L36 12 L32 18 L30 8 Z" fill="white"/>
-  <circle cx="20" cy="13" r="4" fill="white"/>
-  <path d="M18 10 L22 10 L22 8 L18 8 Z" fill="#FFD700"/>
+<!-- Wodka-Flasche: versteckt rechts -->
+<svg style="position:fixed;top:50%;right:4px;width:16px;height:40px;opacity:.12;pointer-events:none;z-index:5;transform:translateY(-50%);" viewBox="0 0 16 40">
+  <rect x="5" y="0" width="6" height="5" rx="1" fill="#aaa"/>
+  <rect x="4" y="5" width="8" height="2" fill="#bbb"/>
+  <rect x="2" y="7" width="12" height="28" rx="4" fill="#DDF0FF" stroke="#aaa" stroke-width=".8"/>
+  <rect x="3" y="12" width="10" height="8" fill="white" opacity=".5" rx="1"/>
 </svg>
 
 <script>
@@ -419,7 +421,7 @@ aside.liste h2{font-family:'Caveat',cursive;font-size:1.4rem;margin-bottom:12px;
    KONFIGURATION
    ============================================================ */
 const KONFIGURATION = {
-  PASSWORT: "mma240126",
+  PASSWORT: "mma240226",
   WORKER_URL: "https://reiseumdiewelt.schmitznoe121.workers.dev"
 };
 
@@ -533,41 +535,75 @@ document.getElementById('formular-suche-feld').addEventListener('input', functio
 
 async function sucheMitNominatim(query, zielId, istFormular) {
   const ergebnisContainer = document.getElementById(zielId);
-  ergebnisContainer.innerHTML = '<div class="' + (istFormular?'ort-suche-eintrag':'suche-ergebnis-eintrag') + '">Suche…</div>';
+  const cssKlasse = istFormular ? 'ort-suche-eintrag' : 'suche-ergebnis-eintrag';
+  ergebnisContainer.innerHTML = `<div class="${cssKlasse}">Suche…</div>`;
   ergebnisContainer.style.display = 'block';
+
   try {
-    const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query)}&format=json&limit=5&accept-language=de`;
-    const antwort = await fetch(url, { headers:{'Accept-Language':'de'} });
-    const daten = await antwort.json();
+    // Zwei APIs parallel anfragen: Nominatim (Orte) + Photon (Firmen/POIs)
+    const [nominatimRes, photonRes] = await Promise.allSettled([
+      fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query)}&format=json&limit=4&accept-language=de&addressdetails=1`),
+      fetch(`https://photon.komoot.io/api/?q=${encodeURIComponent(query)}&limit=4&lang=de`)
+    ]);
+
+    const ergebnisse = [];
+    const geseheneNamen = new Set();
+
+    // Nominatim-Ergebnisse verarbeiten
+    if(nominatimRes.status === 'fulfilled' && nominatimRes.value.ok) {
+      const daten = await nominatimRes.value.json();
+      daten.forEach(e => {
+        const name = e.display_name.split(',').slice(0,2).join(',').trim();
+        if(!geseheneNamen.has(name)) {
+          geseheneNamen.add(name);
+          ergebnisse.push({ name: e.display_name, kurz: name, lat: parseFloat(e.lat), lng: parseFloat(e.lon) });
+        }
+      });
+    }
+
+    // Photon-Ergebnisse verarbeiten (besser für Firmen, Restaurants, Aktivitäten)
+    if(photonRes.status === 'fulfilled' && photonRes.value.ok) {
+      const daten = await photonRes.value.json();
+      (daten.features || []).forEach(f => {
+        const p = f.properties;
+        const lat = f.geometry.coordinates[1];
+        const lng = f.geometry.coordinates[0];
+        const teile = [p.name, p.street, p.city, p.country].filter(Boolean);
+        const name = teile.join(', ');
+        const kurz = p.name || teile[0] || name;
+        if(kurz && !geseheneNamen.has(kurz)) {
+          geseheneNamen.add(kurz);
+          ergebnisse.push({ name, kurz, lat, lng });
+        }
+      });
+    }
+
     ergebnisContainer.innerHTML = '';
-    if(daten.length === 0) {
-      ergebnisContainer.innerHTML = '<div class="' + (istFormular?'ort-suche-eintrag':'suche-ergebnis-eintrag') + '">Keine Ergebnisse gefunden.</div>';
+    if(ergebnisse.length === 0) {
+      ergebnisContainer.innerHTML = `<div class="${cssKlasse}">Keine Ergebnisse gefunden.</div>`;
       return;
     }
-    daten.forEach(eintrag => {
+
+    ergebnisse.slice(0, 6).forEach(eintrag => {
       const div = document.createElement('div');
-      div.className = istFormular ? 'ort-suche-eintrag' : 'suche-ergebnis-eintrag';
-      div.textContent = eintrag.display_name;
+      div.className = cssKlasse;
+      div.textContent = eintrag.name;
       div.addEventListener('click', () => {
-        const lat = parseFloat(eintrag.lat);
-        const lng = parseFloat(eintrag.lon);
-        karte.setView([lat, lng], 13, { animate:true });
+        karte.setView([eintrag.lat, eintrag.lng], 14, { animate:true });
         ergebnisContainer.style.display = 'none';
         if(istFormular) {
-          formularKoordinaten = { lat, lng };
-          document.getElementById('koordinaten-anzeige').textContent = `📍 Position gesetzt: ${lat.toFixed(4)}, ${lng.toFixed(4)}`;
-          if(!document.getElementById('feld-name').value) {
-            document.getElementById('feld-name').value = eintrag.display_name.split(',')[0];
-          }
-          document.getElementById('formular-suche-feld').value = eintrag.display_name.split(',')[0];
+          formularKoordinaten = { lat: eintrag.lat, lng: eintrag.lng };
+          document.getElementById('koordinaten-anzeige').textContent = `📍 Position gesetzt: ${eintrag.lat.toFixed(4)}, ${eintrag.lng.toFixed(4)}`;
+          if(!document.getElementById('feld-name').value) document.getElementById('feld-name').value = eintrag.kurz;
+          document.getElementById('formular-suche-feld').value = eintrag.kurz;
         } else {
-          document.getElementById('suche-feld').value = eintrag.display_name.split(',')[0];
+          document.getElementById('suche-feld').value = eintrag.kurz;
         }
       });
       ergebnisContainer.appendChild(div);
     });
   } catch(fehler) {
-    ergebnisContainer.innerHTML = '<div class="' + (istFormular?'ort-suche-eintrag':'suche-ergebnis-eintrag') + '">Fehler bei der Suche.</div>';
+    ergebnisContainer.innerHTML = `<div class="${cssKlasse}">Fehler bei der Suche.</div>`;
   }
 }
 
@@ -644,7 +680,18 @@ function renderListe() {
     let datumText = '';
     if(ort.datumVon) datumText = ort.datumVon + (ort.datumBis && ort.datumBis!==ort.datumVon ? ' – ' + ort.datumBis : '');
     el.innerHTML = `<div class="ort-karte-kopf"><span class="ort-karte-titel">${escapeHtml(ort.name)}</span><span class="ort-karte-kategorie">${escapeHtml(ort.kategorie)}</span></div><p class="ort-karte-beschreibung">${escapeHtml(ort.beschreibung)}</p>${badges?`<div class="saison-abzeichen-reihe">${badges}</div>`:''}${datumText?`<p style="font-size:.72rem;color:var(--tinte-hell);margin-top:3px;">📅 ${escapeHtml(datumText)}</p>`:''}${ort.erledigt?'<div class="stempel">♡ Schon erlebt</div>':''}`;
-    el.addEventListener('click', () => oeffneDetailModal(ort.id));
+    el.addEventListener('click', () => {
+      // Zur Karte zoomen und Marker-Popup öffnen
+      karte.setView([ort.lat, ort.lng], 14, { animate: true });
+      if(markerNachId[ort.id]) markerNachId[ort.id].fire('click');
+      // Auf Mobile: nach oben zur Karte scrollen
+      if(window.innerWidth <= 760) {
+        document.getElementById('karte').scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => oeffneDetailModal(ort.id), 400);
+      } else {
+        oeffneDetailModal(ort.id);
+      }
+    });
     liste.appendChild(el);
   });
 }
