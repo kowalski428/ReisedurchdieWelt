@@ -1105,5 +1105,21 @@
     ],
     "lat": 47.4313622,
     "lng": 8.3688125
+  },
+  {
+    "id": 70,
+    "erledigt": false,
+    "name": "Europapark",
+    "kategorie": "Tagesausflug",
+    "beschreibung": "",
+    "bildUrl": "",
+    "datumVon": "",
+    "datumBis": "",
+    "saisons": [
+      "Sommer",
+      "Herbst"
+    ],
+    "lat": 48.26674042810153,
+    "lng": 7.7221012115478525
   }
 ]
