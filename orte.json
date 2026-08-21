@@ -1121,5 +1121,20 @@
     ],
     "lat": 48.26674042810153,
     "lng": 7.7221012115478525
+  },
+  {
+    "id": 71,
+    "erledigt": false,
+    "name": "Sunnighorn, Wimmis",
+    "kategorie": "Tagesausflug",
+    "beschreibung": "2.4km lang, 720 Höhenmeter, 1-2h.",
+    "bildUrl": "",
+    "datumVon": "",
+    "datumBis": "",
+    "saisons": [
+      "Sommer"
+    ],
+    "lat": 46.6793557,
+    "lng": 7.6209608
   }
 ]
